@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "ncc build src/index.js -o dist"
   },
   "keywords": [],
   "author": "UCSB Devlopers",
@@ -14,6 +15,7 @@
     "@actions/github": "^5.0.0"
   },
   "devDependencies": {
+    "@vercel/ncc": "^0.31.0",
     "jest": "^27.1.1"
   }
 }
