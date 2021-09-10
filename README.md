@@ -14,5 +14,9 @@ scripts are present.
 ## Example usage
 
 ```
-uses: 
+- name: Get version
+        id: get_version
+        uses: arit-ucsb/AppDev.EvolveVersion.Action@v1.0.0
+        with:
+          scriptDirectory: "./Sql_Scripts"
 ```
