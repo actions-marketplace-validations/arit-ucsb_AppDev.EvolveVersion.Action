@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1631291594468" clover="3.2.0">
+  <project timestamp="1631291594468" name="All files">
+    <metrics statements="11" coveredstatements="6" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="2" elements="16" coveredelements="8" complexity="0" loc="11" ncloc="11" packages="1" files="1" classes="1"/>
+    <file name="lib.js" path="C:\Developer\AppDev.EvolveVersion.Action\src\lib.js">
+      <metrics statements="11" coveredstatements="6" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <line num="1" count="2" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="8" count="0" type="stmt"/>
+      <line num="10" count="0" type="stmt"/>
+      <line num="11" count="0" type="stmt"/>
+      <line num="12" count="0" type="stmt"/>
+      <line num="18" count="3" type="stmt"/>
+      <line num="19" count="3" type="stmt"/>
+      <line num="20" count="3" type="stmt"/>
+      <line num="23" count="2" type="stmt"/>
+    </file>
+  </project>
+</coverage>

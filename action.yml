@@ -1,0 +1,13 @@
+name: "Evolve Version"
+description: "Determine the database version based on the migration scripts present."
+inputs:
+  scriptDirectory:
+    description: "Directory that contains database migration scripts"
+    required: true
+    default: "."
+outputs:
+  version:
+    description: ""
+runs:
+  using: "node12"
+  main: "src/index.js"
