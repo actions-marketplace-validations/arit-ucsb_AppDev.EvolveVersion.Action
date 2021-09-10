@@ -1,7 +1,6 @@
 # Evolve Version Github Action
 
-Determines the version of a database migration project based on which migration
-scripts are present.
+This repo defines a [JavaScript GitHub Action](https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action) that determines the version of a database migration project based on which migration scripts are present.
 
 ## Building and Deploying
 
