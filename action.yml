@@ -1,4 +1,4 @@
-name: "Evolve Version"
+name: "DB Migration Version"
 description: "Determine the database version based on the migration scripts present."
 inputs:
   scriptDirectory:
