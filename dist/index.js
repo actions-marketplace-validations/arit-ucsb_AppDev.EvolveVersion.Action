@@ -6191,9 +6191,22 @@ function getScriptName(scriptDir, callback) {
 }
 
 function extractVersion(scriptName) {
-  let [versions] = scriptName.split('__');
-  console.log('VERSIONS: %s', versions);
-  return versions.replace(/\_/g, '.').replace('V', '');
+  const [versionPart] = scriptName.split('__');
+  let versions = versionPart.split('_');
+
+  switch (versions.length) {
+    case 1:
+      versions = versions.concat([0, 0]);
+      break;
+    case 2:
+      versions.push(0);
+      break;
+    default:
+      break;
+  }
+  
+  versions[0] = versions[0].replace(/\_/g, '.').replace('V', '');
+  return versions.join('.');
 }
 
 module.exports = {
