@@ -11,8 +11,7 @@ const {readdir} = require('fs');
     [0];
   const parts = version.split('_');
   return parts
-    .concat(Array(3 - parts.length)
-    .fill(0))
+    .concat(Array(3 - parts.length).fill(0))
     .map(Number);
 }
 
