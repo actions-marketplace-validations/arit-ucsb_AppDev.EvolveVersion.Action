@@ -1,39 +1,48 @@
 const {readdir} = require('fs');
 
+/**
+ * String -> Number[]
+ * e.g. 'V1_10__Double_Digit_Minor_Version.sql' -> [1, 10, 0]
+ */
+ function extractVersion(scriptName) {
+  const version = scriptName
+    .substring(1)
+    .split('__')
+    [0];
+  const parts = version.split('_');
+  return parts
+    .concat(Array(3 - parts.length)
+    .fill(0))
+    .map(Number);
+}
+
+function compareVersions(a, b) {
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] !== b[i]) {
+      return a[i] - b[i];
+    }
+  }
+  return 0;
+}
+
 // Have to use callback instead of promises, because github actions
 // doesn't support node 14 yet.
-function getScriptName(scriptDir, callback) {
+/**
+ * String -> ((Error, String) -> void) -> void
+ */
+ function getMaxScriptVersion(scriptDir, callback) {
   readdir(scriptDir, (err, files) => {
     if (err) {
       callback(err, undefined);
     } else {
-      files = files.sort();
-      const scriptName = files[files.length - 1];
-      callback(undefined, scriptName);
+      const versions = files
+        .map(extractVersion)
+        .sort(compareVersions);
+      const maxVer = versions[versions.length - 1];
+      callback(undefined, maxVer.join('.'));
     }
   });
 }
 
-function extractVersion(scriptName) {
-  const [versionPart] = scriptName.split('__');
-  let versions = versionPart.split('_');
 
-  switch (versions.length) {
-    case 1:
-      versions = versions.concat([0, 0]);
-      break;
-    case 2:
-      versions.push(0);
-      break;
-    default:
-      break;
-  }
-  
-  versions[0] = versions[0].replace(/\_/g, '.').replace('V', '');
-  return versions.join('.');
-}
-
-module.exports = {
-  getScriptName,
-  extractVersion
-}
+module.exports = {getMaxScriptVersion}
